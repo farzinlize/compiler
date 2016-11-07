@@ -1,4 +1,5 @@
 #FuzzyBunny Production :D
+#first python project
 stack = []
 math = ['+', '-', '*', '/', '<', '>', '>=', '<=', '==', '!=', '%']
 inloop = False
