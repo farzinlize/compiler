@@ -1,4 +1,4 @@
-
+#FuzzyBunny Production :D
 stack = []
 math = ['+', '-', '*', '/', '<', '>', '>=', '<=', '==', '!=', '%']
 inloop = False
