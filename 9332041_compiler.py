@@ -115,6 +115,9 @@ def b_u(lst):
 def show():
     print 'STACK :', stack
 
+def help_f():
+    print 'list of commands: DUP, DROP, SWAP, ., PICK, ROLL, EMIT'
+
 def openfile():
     inFile_name = raw_input('Enter file name : ')
     try :
@@ -131,10 +134,10 @@ CreatFuntion_duc = {}
 fun_duc = {'IF':if_else_then, ':':CreatFuntion, 'DO':loop, 'BEGIN':b_u}
 
 duc = {'DUP':dup, 'DROP':drop, 'SWAP':swap, '.':printIt, 'PICK':pick, 'ROLL':roll, 'EMIT':emit, 'KEY':key, 'OPEN_FILE':openfile,
-       'CR':endl, 'SHOW':show, 'DEPTH':depth}
+       'CR':endl, 'SHOW':show, 'DEPTH':depth, 'HELP':help_f}
 
 argument = {'DUP':1, 'DROP':1, 'SWAP':2, '.':1,'PICK':1, 'ROLL':1, 'EMIT':1, 'KEY':1, 'OPEN_FILE':0,
-       'CR':0, 'SHOW':0, 'DEPTH':0}
+       'CR':0, 'SHOW':0, 'DEPTH':0, 'HELP':0}
 
 def compileIt(lst):
     if lst == []:
