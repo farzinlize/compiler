@@ -23,7 +23,7 @@ class Math_op:
         elif op=='<=':return int(self.a2 <= self.a1)
         elif op=='>=':return int(self.a2 >= self.a1)
         elif op=='!=':return int(self.a2 != self.a1)
-    
+
 def dup():stack.append(stack[-1])
 def depth():stack.append(len(stack))
 def drop():stack.pop()
@@ -44,7 +44,7 @@ def pick():
     try:
         a2 = stack.pop(int(-a1))
         stack.append(a2)
-    except:print 'stack index out of range' 
+    except:print 'stack index out of range'
 def roll():
     a1 = stack.pop()
     try:
@@ -111,7 +111,7 @@ def b_u(lst):
         compileIt(lst[:loop_end])
     inloop = False
     compileIt(lst[(loop_end)+1:])
-    
+
 def show():
     print 'STACK :', stack
 
@@ -138,20 +138,22 @@ argument = {'DUP':1, 'DROP':1, 'SWAP':2, '.':1,'PICK':1, 'ROLL':1, 'EMIT':1, 'KE
 
 def compileIt(lst):
     if lst == []:
-        return 
+        return
     elif lst[0] in duc.keys():
         if len(stack) < argument[lst[0]]:
-            print "EROR! ",lst[0],"need exactly",argument[lst[0]],"stack home (there is only",len(stack),"home)"
+            print "EROR! ",lst[0],"need exactly",argument[lst[0]],"stack home (there is only",len(stack),"home)",
         else:
             duc[lst[0]]()
             compileIt(lst[1:])
     elif lst[0] in math:
         if len(stack) < 2:
-            print "EROR! math operation need exactly 2 stack home (there is only",len(stack),"home)"
+            print "EROR! math operation need exactly 2 stack home (there is only",len(stack),"home)",
         else:
             op = Math_op(stack)
-            if op.canDO:stack.append(op.choose(lst[0]))
-            else : print 'Math operation expect int or float , got string'
+            if op.canDO:
+                stack.append(op.choose(lst[0]))
+            else :
+                print 'Math operation expect int or float , got string',
             compileIt(lst[1:])
     elif lst[0] in fun_duc.keys():
         fun_duc[lst[0]](lst[1:])
@@ -166,7 +168,7 @@ def compileIt(lst):
             stack.append(float(lst[0]))
             compileIt(lst[1:])
     else :
-            print "EROR! No such funtion or valid input :", lst[0]
+            print "EROR! No such funtion or valid input :", lst[0],
             return
 
 def openshell():
@@ -175,10 +177,10 @@ def openshell():
         if iN == '':
             break
         compileIt(iN.split())
-        
+
 def main():
     ask = raw_input('Enter File ? (y/n) ')
     if ask == 'y':openfile()
     openshell()
-    
+
 main()
